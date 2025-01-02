@@ -43,7 +43,7 @@ const TextAreaWithStats: React.FC<TextAreaWithStatsProps> = ({
         className="text-input"
         value={text}
         onChange={(e) => setText(e.target.value)}
-        placeholder="Enter your text and choose the case you want to convert it to ..."
+        placeholder="Enter or paste your content here ..."
       />
       <div className="text-stats">
         <StatsDisplay characters={textStats.characters} words={textStats.words} lines={textStats.lines} />
