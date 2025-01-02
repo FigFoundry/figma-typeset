@@ -19,14 +19,14 @@
   "keywords": [
     "figma",
     "plugin",
-    "react",
-    "starter",
-    "boilerplate",
-    "vite",
-    "scss"
+    "typeset",
+    "formatter",
+    "formatting",
+    "case",
+    "convert",
+    "cleanup"
   ],
   "author": "@planetabhi",
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/planetabhi/figma-typeset/issues"
   },
@@ -41,7 +41,7 @@
     "@figma/plugin-typings": "1.106.0",
     "@new-ui/reset": "^0.0.5",
     "@rollup/plugin-replace": "^6.0.2",
-    "@types/node": "22.10.3",
+    "@types/node": "22.10.4",
     "@types/react": "19.0.2",
     "@types/react-dom": "19.0.2",
     "@typescript-eslint/eslint-plugin": "8.19.0",
