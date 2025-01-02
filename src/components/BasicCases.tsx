@@ -22,8 +22,8 @@ const BasicCases: React.FC<BasicCasesProps> = ({ text, setText }) => {
             .map((sentence, index, sentencesArray) => {
               if (index % 2 === 0) {
                 return sentence
-                  .split(/(\s+)/)
-                  .map((word) => {
+                  .split(' ')
+                  .map((word, wordIndex) => {
                     const leadingMatch = word.match(/^['"“‘”([{]+/);
                     const trailingMatch = word.match(/['"’”)\]}.,!?;:]+$/);
                     const leading = leadingMatch ? leadingMatch[0] : '';
@@ -31,8 +31,10 @@ const BasicCases: React.FC<BasicCasesProps> = ({ text, setText }) => {
                     const trimmedWord = word.slice(leading.length, trailing.length ? -trailing.length : undefined);
 
                     const shouldCapitalize =
-                      trimmedWord.length > 0 &&
-                      (leading.length > 0 || !lowercaseWords.has(trimmedWord.toLowerCase()));
+                      wordIndex === 0 ||
+                      !lowercaseWords.has(trimmedWord.toLowerCase()) ||
+                      sentencesArray[index - 1]?.match(/[:;—]/) ||
+                      leading.length > 0;
 
                     const capitalizedWord = shouldCapitalize
                       ? trimmedWord.charAt(0).toUpperCase() + trimmedWord.slice(1).toLowerCase()
@@ -40,7 +42,7 @@ const BasicCases: React.FC<BasicCasesProps> = ({ text, setText }) => {
 
                     return leading + capitalizedWord + trailing;
                   })
-                  .join('');
+                  .join(' ');
               }
               return sentence;
             })
