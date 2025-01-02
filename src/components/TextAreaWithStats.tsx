@@ -32,7 +32,7 @@ const TextAreaWithStats: React.FC<TextAreaWithStatsProps> = ({
     setTextStats({
       characters: text.length,
       words: text.trim() === '' ? 0 : text.trim().split(/\s+/).length,
-      lines: text.split('\n').length,
+      lines: text.trim() === '' ? 0 : text.split('\n').length,
     });
   }, [text]);
 
